@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zuhaib Raza | Full Stack Developer (.NET, Azure, AI Agents)</title>
+<meta name="description" content="Zuhaib Raza, full stack developer in Islamabad building .NET microservices on Azure Kubernetes and AI agents for parallel development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF2F0; --surface:#FFFFFF; --ink:#1B2430; --muted:#556170; --line:#CBD4D0;
+  --b1:#2F5DDB; --b2:#0E9F8E; --b3:#C98A0C; --main:#1B2430;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#131920; --surface:#1B232D; --ink:#E6EAF0; --muted:#9AA6B4; --line:#2E3946;
+    --b1:#6E91FF; --b2:#33C4B1; --b3:#E7B23C; --main:#E6EAF0;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#131920; --surface:#1B232D; --ink:#E6EAF0; --muted:#9AA6B4; --line:#2E3946;
+  --b1:#6E91FF; --b2:#33C4B1; --b3:#E7B23C; --main:#E6EAF0;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 Figtree,"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--b1);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;line-height:1.1;margin:0}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:1rem}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.15rem;text-decoration:none}
+nav{display:flex;gap:1.4rem;font-weight:500;font-size:.95rem}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+@media (max-width:640px){nav .hide-sm{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center;padding:5rem 0 4rem}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem);font-weight:800;letter-spacing:-.02em}
+.hero .role{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(1.2rem,2.4vw,1.5rem);font-weight:500;margin:.9rem 0 1.4rem;color:var(--muted)}
+.hero p.lede{max-width:34rem;margin:0 0 2rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{display:inline-block;padding:.75rem 1.3rem;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn:hover{transform:translateY(-1px)}
+.graph{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.5rem 1.25rem 1rem}
+.graph svg{width:100%;height:auto;display:block}
+.graph figcaption{font-size:.9rem;color:var(--muted);margin-top:.6rem}
+.br{fill:none;stroke-width:4;stroke-linecap:round}
+.node{stroke:var(--surface);stroke-width:3}
+.glabel{font:600 13px Figtree,system-ui,sans-serif}
+@media (prefers-reduced-motion: no-preference){
+  .br{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 1.1s ease-out forwards}
+  .br.b1{animation-delay:.3s}.br.b2{animation-delay:.55s}.br.b3{animation-delay:.8s}
+  .pop{opacity:0;animation:pop .35s ease-out forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes pop{to{opacity:1}}
+}
+@media (max-width:860px){.hero{grid-template-columns:1fr;padding:3rem 0 2.5rem;gap:2rem}}
+
+/* sections */
+section{padding:4rem 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:700;margin-bottom:1.75rem;letter-spacing:-.01em}
+.intro{max-width:44rem;font-size:1.15rem}
+
+/* agents */
+.agents{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.agent{padding-top:1.1rem;border-top:4px solid var(--c)}
+.agent h3{font-size:1.25rem;margin-bottom:.5rem}
+.agent p{margin:0;color:var(--muted)}
+.agents-note{margin-top:2rem;max-width:44rem}
+@media (max-width:800px){.agents{grid-template-columns:1fr}}
+
+/* solo */
+.solo{display:grid;grid-template-columns:1.6fr 1fr;gap:2.5rem;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:2rem}
+.solo h3{font-size:1.6rem;margin-bottom:.75rem}
+.solo p{margin:0 0 1.5rem;max-width:40rem}
+.solo-facts{list-style:none;margin:0;padding:0;border-left:3px solid var(--b2);padding-left:1.25rem}
+.solo-facts li{margin-bottom:1rem}
+.solo-facts strong{display:block;font-size:.85rem;color:var(--muted);font-weight:600}
+@media (max-width:760px){.solo{grid-template-columns:1fr;padding:1.5rem}}
+
+/* experience timeline */
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:3px;background:var(--line);border-radius:3px}
+.tl>li{position:relative;padding-left:2.4rem;margin-bottom:2.75rem}
+.tl>li:last-child{margin-bottom:0}
+.tl>li::before{content:"";position:absolute;left:0;top:.35rem;width:17px;height:17px;border-radius:50%;background:var(--dot);box-shadow:0 0 0 4px var(--bg)}
+.job-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.25rem 1rem;margin-bottom:.75rem}
+.job-head h3{font-size:1.4rem}
+.job-head .co{color:var(--muted);font-weight:500}
+.when{font-weight:600;color:var(--muted);font-size:.95rem;white-space:nowrap}
+.tl ul{margin:0;padding-left:1.1rem}
+.tl ul li{margin-bottom:.35rem}
+.proj{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1rem}
+.proj div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem}
+.proj h4{margin:0 0 .4rem;font-family:"Bricolage Grotesque",sans-serif;font-size:1.05rem}
+.proj p{margin:0;font-size:.95rem;color:var(--muted)}
+@media (max-width:800px){.proj{grid-template-columns:1fr}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem 3rem}
+.skills h3{font-size:1.05rem;margin-bottom:.6rem}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem;margin:0;padding:0;list-style:none}
+.tags li{padding:.3rem .75rem;border:1px solid var(--line);border-radius:999px;font-size:.92rem;background:var(--surface)}
+@media (max-width:700px){.skills{grid-template-columns:1fr}}
+
+/* contact */
+.contact{padding:5rem 0}
+.contact h2{font-size:clamp(2rem,4.5vw,3rem)}
+.contact p{max-width:36rem}
+.mail{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(1.3rem,3.2vw,1.9rem);font-weight:700;text-decoration-thickness:3px;text-underline-offset:6px;text-decoration-color:var(--b1);word-break:break-word}
+footer{padding:2rem 0;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Zuhaib Raza</a>
+    <nav aria-label="Main">
+      <a href="#agents">AI agents</a>
+      <a class="hide-sm" href="#solo">Projects</a>
+      <a href="#experience">Experience</a>
+      <a class="hide-sm" href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Zuhaib Raza</h1>
+      <p class="role">Full stack developer building .NET microservices on Azure, with AI agents in every step.</p>
+      <p class="lede">I have 5+ years of experience shipping production systems with .NET Core and Angular, plus a year of React. Today I build and deploy microservices on Azure Kubernetes at N3O Limited, and I run my own Claude agents to work on several tickets in parallel.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:zuhaibraza51@gmail.com">Email me</a>
+        <a class="btn" href="#experience">See my experience</a>
+      </div>
+    </div>
+
+    <figure class="graph" style="margin:0">
+      <svg viewBox="0 0 420 250" role="img" aria-labelledby="gtitle">
+        <title id="gtitle">Three ticket branches, each worked by its own agent, merge into main and are deployed</title>
+        <!-- main -->
+        <path class="br" style="--len:400;stroke:var(--main)" d="M20 215 H400"/>
+        <!-- branches -->
+        <path class="br b1" style="--len:330;stroke:var(--b1)" d="M60 215 C60 160 90 50 130 50 H250 C290 50 300 160 300 215"/>
+        <path class="br b2" style="--len:290;stroke:var(--b2)" d="M90 215 C90 175 110 110 145 110 H240 C270 110 280 175 280 215"/>
+        <path class="br b3" style="--len:250;stroke:var(--b3)" d="M120 215 C120 190 135 165 160 165 H230 C250 165 260 190 260 215"/>
+        <!-- commits -->
+        <g class="pop" style="animation-delay:1.3s">
+          <circle class="node" cx="175" cy="50" r="8" fill="var(--b1)"/><circle class="node" cx="215" cy="50" r="8" fill="var(--b1)"/>
+          <circle class="node" cx="180" cy="110" r="8" fill="var(--b2)"/><circle class="node" cx="215" cy="110" r="8" fill="var(--b2)"/>
+          <circle class="node" cx="195" cy="165" r="8" fill="var(--b3)"/>
+          <text class="glabel" x="130" y="32" fill="var(--b1)">Ticket A agent</text>
+          <text class="glabel" x="145" y="93" fill="var(--b2)">Ticket B agent</text>
+          <text class="glabel" x="160" y="150" fill="var(--b3)">Ticket C agent</text>
+          <text class="glabel" x="20" y="240" fill="var(--muted)">main</text>
+        </g>
+        <g class="pop" style="animation-delay:1.6s">
+          <circle cx="360" cy="215" r="13" fill="var(--main)"/>
+          <path d="M354 215 l4 4 8-9" fill="none" stroke="var(--surface)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <text class="glabel" x="335" y="190" fill="var(--ink)">Deployed</text>
+        </g>
+      </svg>
+      <figcaption>How I work: one agent per ticket on its own branch, then a deployment agent ships the result.</figcaption>
+    </figure>
+  </div>
+</main>
+
+<section id="agents">
+  <div class="wrap">
+    <h2>AI agents I built for my own workflow</h2>
+    <div class="agents">
+      <article class="agent" style="--c:var(--b1)">
+        <h3>Parallel branch agent</h3>
+        <p>Creates a separate Git branch for each ticket and lets agents work on them side by side, so several tickets move forward at the same time.</p>
+      </article>
+      <article class="agent" style="--c:var(--b2)">
+        <h3>N3O deployment agent</h3>
+        <p>Deploys N3O websites end to end, removing manual release steps and making every deployment repeatable.</p>
+      </article>
+      <article class="agent" style="--c:var(--b3)">
+        <h3>GitHub tracker skill</h3>
+        <p>Follows every pull request and review comment across repositories, so no feedback goes unanswered.</p>
+      </article>
+    </div>
+    <p class="agents-note">I use Claude Code and OpenAI Codex across the whole process: planning, writing code, testing and reviewing pull requests.</p>
+  </div>
+</section>
+
+<section id="solo">
+  <div class="wrap">
+    <h2>Solo project</h2>
+    <article class="solo">
+      <div>
+        <h3>Australian Therapy Hub</h3>
+        <p>A live website for an Australian multidisciplinary therapy provider offering NDIS psychology, occupational therapy, autism support and positive behaviour support in Moreton Bay. I built and delivered it on my own, from first design to launch.</p>
+        <a class="btn" href="https://austherapyhub.com.au/" target="_blank" rel="noopener">Visit austherapyhub.com.au</a>
+      </div>
+      <ul class="solo-facts">
+        <li><strong>Role</strong>Sole developer</li>
+        <li><strong>Client</strong>Healthcare, Australia</li>
+        <li><strong>Status</strong>Live in production</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <ol class="tl">
+      <li style="--dot:var(--b1)">
+        <div class="job-head">
+          <h3>Full Stack Developer <span class="co">at N3O Limited</span></h3>
+          <span class="when">Jan 2026 to present</span>
+        </div>
+        <ul>
+          <li>Build and maintain websites and platform features on Umbraco CMS with .NET.</li>
+          <li>Develop .NET microservices with clear service boundaries and REST APIs.</li>
+          <li>Deploy services to Azure and configure and maintain Kubernetes clusters.</li>
+          <li>Manage Azure Storage for application assets and data.</li>
+          <li>Write GitHub Actions workflows that build, test and release services.</li>
+        </ul>
+      </li>
+      <li style="--dot:var(--b2)">
+        <div class="job-head">
+          <h3>Full Stack Developer <span class="co">at Saufik Technologies</span></h3>
+          <span class="when">2019 to Dec 2025</span>
+        </div>
+        <p style="margin:0">Built business platforms with Angular and .NET Core for education, construction and healthcare clients, and later React interfaces.</p>
+        <div class="proj">
+          <div>
+            <h4>Calimatic</h4>
+            <p>School management platform. Onboarding, enrollments, gamification, CRM workflows, and Stripe and NMI payments for global transactions.</p>
+          </div>
+          <div>
+            <h4>Projul</h4>
+            <p>Construction management software. Projects, tasks, time tracking, invoicing and estimates, with Dapper query tuning for speed.</p>
+          </div>
+          <div>
+            <h4>CPR</h4>
+            <p>Medical school management system. Class scheduling, student records, invoicing, and automated reporting and billing.</p>
+          </div>
+        </div>
+      </li>
+      <li style="--dot:var(--b3)">
+        <div class="job-head">
+          <h3>BS Computer Science <span class="co">at Sukkur IBA University</span></h3>
+          <span class="when">2017 to 2021</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div><h3>Backend</h3><ul class="tags"><li>C#</li><li>.NET Core</li><li>ASP.NET Web API</li><li>Microservices</li><li>Umbraco</li><li>Dapper</li><li>SignalR</li><li>REST APIs</li></ul></div>
+      <div><h3>Cloud and DevOps</h3><ul class="tags"><li>Microsoft Azure</li><li>Kubernetes</li><li>Azure Storage</li><li>GitHub Actions</li><li>Git</li></ul></div>
+      <div><h3>Frontend</h3><ul class="tags"><li>Angular</li><li>React</li><li>TypeScript</li><li>PrimeNG</li><li>Tailwind CSS</li><li>Bootstrap</li><li>Service Workers</li><li>IndexedDB</li></ul></div>
+      <div><h3>AI and agents</h3><ul class="tags"><li>Claude Code</li><li>OpenAI Codex</li><li>Custom Claude skills</li><li>Agent workflows</li></ul></div>
+      <div><h3>Data</h3><ul class="tags"><li>SQL Server</li><li>Query optimization</li><li>Performance tuning</li></ul></div>
+      <div><h3>Integrations</h3><ul class="tags"><li>Stripe</li><li>NMI</li><li>Google Drive</li><li>Dropbox</li><li>Social media APIs</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p>I'm open to backend and full stack roles working with .NET, Azure and AI. Email is the fastest way to reach me.</p>
+    <p><a class="mail" href="mailto:zuhaibraza51@gmail.com">zuhaibraza51@gmail.com</a></p>
+    <p style="color:var(--muted)">Based in Islamabad, Pakistan. Open to remote work.</p>
+  </div>
+</section>
+
+<footer><div class="wrap">© 2026 Zuhaib Raza</div></footer>
+</body>
+</html>
